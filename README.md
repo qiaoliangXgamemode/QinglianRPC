@@ -31,6 +31,42 @@ XoRPC是青联应用之一，基于基础的网络编程实现，协助网络传
 ## 设计图
 ![Design](https://github.com/qiaoliangXgamemode/QinglianRPC/blob/main/design.png?raw=true)
 ![DDD](https://github.com/qiaoliangXgamemode/QinglianRPC/blob/main/DDD.png?raw=true)
+
+## Node (服务节点注册)代码示例
+```
+   var Config cfg.ServerConfig
+	// 是否启用节点
+	Config.EnabledNode = 1
+	// 监控ID
+	Config.ControlID = 1000
+	Config.ServerName = "服务器节点1"
+	// 节点 ID
+	Config.ServerNodeID = 1
+	// 监控集群Hash
+	Config.ServerGroupHash = "123"
+        // 服务节点域网集群名单
+	Server_Control_Whitelist = {
+	   1000:"192.168.0.1"
+	}
+	// 绑定地址
+	// Config.NodeIPV6 = "fe80::973e:1e65:a21e:c3f3"
+	Config.NodeIPV4 = "0.0.0.0"
+	// 通信协议
+	Config.Protocol = "UDP"
+	// 绑定端口 (UDP)
+	Config.SerNodePort = 2333
+	// Config.conn
+	// 是否启用节点流量转发
+	Config.TranspondForwar = 1
+	// 流量转发端口绑定 （TCP） | 可以分开UDP和TCP
+	Config.TranspondForwarPort = 10086
+      // 注册节点
+	XoServerNode := XoRPC.NewServerXORPC(Config)
+   // 输出当前节点配置
+	XoRPC.LogsConfigServer(XoServerNode)
+   // 启用重载
+	XoServerNode.Server(4)
+```
 ### 思路
 NAT
 
