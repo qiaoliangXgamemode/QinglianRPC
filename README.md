@@ -29,7 +29,7 @@ XoRPC是青联应用之一，基于基础的网络编程实现，协助网络传
 维护性： 我早已做成模块化形式，满足效率与维护性高。
 
 ## 设计图
-
+![Design](https://github.com/qiaoliangXgamemode/QinglianRPC/blob/main/design.png?raw=true)
 ### 思路
 NAT
 
