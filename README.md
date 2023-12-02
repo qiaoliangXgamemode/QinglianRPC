@@ -35,19 +35,31 @@ XoRPC是青联应用之一，基于基础的网络编程实现，协助网络传
 ## Node (服务节点注册)代码示例
 ```
    var Config cfg.ServerConfig
-	// 是否启用节点
-	Config.EnabledNode = 1
-	// 监控ID
-	Config.ControlID = 1000
-	Config.ServerName = "服务器节点1"
-	// 节点 ID
-	Config.ServerNodeID = 1
-	// 监控集群Hash
-	Config.ServerGroupHash = "123"
-        // 服务节点域网集群名单
-	Server_Control_Whitelist = {
-	   1000:"192.168.0.1"
+	// 节点ID
+	Config.ServiceID = 1
+	// 节点名称
+	Config.ServiceName = "服务器节点1"
+	// 节点权重
+	Config.Serviceweight = 1
+	// 节点通信加密
+	Config.ServiceEncrypt = true
+	// 节点过滤器
+	Config.ServiceFilter = true
+	// 节点过滤器类型
+	// Minecraft 节点只专注于minecraft的数据
+	Config.ServiceFiltertype = "minecraft"
+	// 节点公开的验证密钥
+	Config.PublicToken = "1bb8snhasd(Habv)"
+	// 节点私密的验证密钥
+	Config.PrivateToken = "G9sdb&Ubvsad0GH*Jwds2rt4t59ndc0cn+112s.Nsm234"
+	// 节点Hash唯一
+	Config.ServiceGroupHash = "1dsf"
+	// 广域网(可选)
+	Config.Node_widearea_spDimain = {
+		0:"193.22.45.111"
 	}
+	// 公域网(可选)
+	Config.Node_public_spDimain = {}
 	// 绑定地址
 	// Config.NodeIPV6 = "fe80::973e:1e65:a21e:c3f3"
 	Config.NodeIPV4 = "0.0.0.0"
@@ -60,11 +72,8 @@ XoRPC是青联应用之一，基于基础的网络编程实现，协助网络传
 	Config.TranspondForwar = 1
 	// 流量转发端口绑定 （TCP） | 可以分开UDP和TCP
 	Config.TranspondForwarPort = 10086
-      // 注册节点
 	XoServerNode := XoRPC.NewServerXORPC(Config)
-   // 输出当前节点配置
 	XoRPC.LogsConfigServer(XoServerNode)
-   // 启用重载
 	XoServerNode.Server(4)
 ```
 ### 思路
